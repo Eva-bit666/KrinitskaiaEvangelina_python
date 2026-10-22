@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Notes</title>
+    <script type="text/javascript" src="/static/lab9.2.js"></script>
+    <link href="/static/store.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Notes:</h1>
+    </header>
+    <h3>Add new note:</h3>
+    <form>
+        <div>
+            <input type="text" name="text" id="text">
+            <label for="text">Note text</label>
+        </div>
+        <div>
+            <input type="checkbox" name="important" id="important">
+            <label for="important">Important</label>
+        </div>
+        <button type="button" onClick="addNote()">Add</button>
+        <button type="button" onClick="clearNotes()">Clear</button>
+    </form>
+    <ul>
+        {% for note in notes_list %}
+        <li>
+            {% if note.important %}
+            <b>{{ note.text }}</b>
+            {% else %}
+            {{ note.text }}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
